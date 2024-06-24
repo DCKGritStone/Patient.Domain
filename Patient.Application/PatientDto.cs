@@ -20,6 +20,7 @@ namespace Patient.Application
         public string? Address { get; set; }
         public int CityId { get; set; }
 
-
+        public List<CityDto>? Cities_Details { get; set; }
+        public List<AppointmentDto>? Appointments_Details { get; set; }
     }
 }

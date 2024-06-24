@@ -1,21 +1,19 @@
 ﻿using Patient.Domain;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Patient.Application
 {
-    public class CityDto
+    public class StateDto
     {
         public int Id { get; set; }
-        public string? CityName { get; set; }
+        public string? StateName { get; set; }
 
-        public int StateId { get; set; }
+        public int CountryId { get; set; }
 
-        public List<StateDto>? States_Details { get; set; }
-
+        public List<CountryDto>? Countries_Details { get; set; }
     }
 }

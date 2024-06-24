@@ -71,8 +71,8 @@ namespace PatientClean.API.Controllers
         }
 
         [HttpPut]
-        [Route("{id:int}")]
-        public IActionResult Create([FromBody] int id , UpdateAppointmentDto updateAppointmentDto)
+        [Route("{id}")]
+        public IActionResult Create([FromRoute] int id , [FromBody] UpdateAppointmentDto updateAppointmentDto)
         {
             var appointmentDomain = dbContext.AppointmentDetails.FirstOrDefault(x => x.Id == id);
 
@@ -86,6 +86,7 @@ namespace PatientClean.API.Controllers
             appointmentDomain.PatientId = updateAppointmentDto.PatientId;
 
             dbContext.AppointmentDetails.Add(appointmentDomain);
+
             dbContext.SaveChanges();
             return Ok(appointmentDomain);
 
@@ -94,7 +95,7 @@ namespace PatientClean.API.Controllers
         [HttpDelete]
         [Route("{id:int}")]
 
-        public IActionResult Create([FromBody] int id)
+        public IActionResult Create([FromRoute] int id)
         {
             var appointmentDomain = dbContext.AppointmentDetails.FirstOrDefault(x => x.Id == id);
             if (appointmentDomain == null)
